@@ -8,7 +8,8 @@ React adalah library JavaScript yang deklaratif, efisien, dan fleksibel untuk me
 3. React dapat digunakan pada aplikasi kecil maupun berskala besar dan kompleks.
 4. Penggunaan react yang populer diseluruh dunia seperti pada perusahaan-perusahaan teknologi.
 
-use library pada react :
+Kita membutuhkan create-react-app untuk membuat project Reactjs, create-react-app adalah program berbasis CLI yang memang khusus digunakan untuk membuat proyek React. Program ini akan meng-generate semua hal yang kita butuhkan untuk proyek awal (aturan penulisan nama project, harus menggunakan huruf kecil. Jika ada dua suku kata, maka bisa dipisah dengan '-'), use library pada react :
+
 - npx adalah Node Package Runner. Fungsinya untuk mengeksekusi package Nodejs.
 
           npx-creat-react-app nama-project
@@ -23,7 +24,6 @@ use library pada react :
           cd nama-project
           yarn start
           
-
 Pada dasarnya Reacjs hanya melakukan render komponen saat ada data yang berubah. Seperti namanya “React” ia akan breaksi saat ada perubahan data (reaktif). Komponen adalah bagian-bagian dari UI, contohnya seperti tombol, label, input, dll. Komponen juga bisa dibentuk dari komponen yang lain, langkah-langkah yang harus dilakukan untuk membuat aplikasi react adalah sebagai berikut:
 1. Menambahkan library react ke HTML;
 2. Membuat elemen HTML untuk wadah aplikasi;
@@ -33,6 +33,25 @@ Pada dasarnya Reacjs hanya melakukan render komponen saat ada data yang berubah.
 Kita membuat sebuah elemen div dengan id="app".Setiap komponen yang kita buat di React akan di-render atau ditampilkan ke dalam div tersebut.
 
            <div id="app"></div>
+
+
+#### Memahami Struktur Direktori Project React
+
+Berikut ini adalah struktur direktori dari proyek React;
+
+1. node_modules berisi paket-paket modul Nodejs; semua libaray yang kita install dengan npm akan disimpan di sini.
+2. public berisi file untuk publik seperti HTML, CSS, icon, dan gambar, dan aset publik lainnya;
+3. index.html adalah file HTML yang akan digunakan aplikasi React untuk render komponen.
+4. src berisi kode dari aplikasi Reactjs, di sinilah kita akan membuat komponen;
+5. App.js berisi kode untuk komponen App atau komponen utama dari aplikasi;
+6. App.test.js berisi kode untuk testing komponen App;
+7. index.js berisi kode untuk render komponen App ke Real DOM;
+8. serviceWorker.js berisi kode untuk service worker, ini kita butuhkan nanti saat membuat aplikasi PWA (Progressive Web Apps);
+9. setTests.js berisi kode untuk testing aplikasi.
+10. .gitignore berisi kode-kode yang akan diabaikan oleh Git.
+11. package.json file JSON yang berisi keterangan proyek dan daftar modul-modul yang dibutuhkan.
+12. yarn.lock adalah file yang digunakan Yarn untuk mengunci versi-versi modul Nodejs yang digunakan.
+
 
 #### Membuat Komponen React
 
@@ -63,6 +82,16 @@ React dapat membuat Encapsulated Component yang dapat mengatur setiap tahapannya
 - Learn Once, Write Anywhere
 Developer dapat mengembangkan fitur baru menggunakan react tanpa mengubah kode sebelumnya, react juga dapat bekerja menggunakan Node JS dan mobile apps menggunakan React Native.
 React memiliki yang namanya component, component yaitu sesuatu yang UI dalam satua-satuan yang kecil (dalam 1 page terdapat beberapa component yang dapat kita buat). Component dapat dibuat menggunakan function dan class. Component menerima beberapa masukan/Props (singkatan dari properti) dan mengembalikan element React yang mendeskripsikan apa yang seharusnya tampil pada layar.
+
+### Component di React
+
+Komponen di Reactjs dapat kita buat dengan dua cara pertama menggunakan fungsi, dan kedua menggunakan class. Komponen yang dibuat dengan fungsi disebut juga dengan function components dan yang menggunakan class disebut class components.
+
+![functionComponents](https://www.petanikode.com/img/react/komponen/function-component.png)
+
+Sedangkan untuk class component, cara membuatnya harus melakukan extends dari class React.Component.
+
+![classComponents](https://www.petanikode.com/img/react/komponen/class-component.png)
 
 ### Membuat UI Element dengan React js 
 
@@ -135,7 +164,22 @@ Pada HTML biasa kita tulis dengan huruf kecil semua, sedangkan pada JSX ditulis 
 
 Conditional react berfungsi sama halnya dengan operator bersyarat pada Javascript. Gunakan JavaScript operator seperti if atau operator bersyarat untuk membuat representasi elemen dari state saat ini, dan React akan memperbarui UI sesuai dengan state tersebut.
 
-
 ### Virtual DOM 
 
 Virtual DOM (VDOM) adalah duplikasi dari real DOM dan merupakan sebuah konsep dalam pemrograman di mana representasi ideal atau virtual dari antarmuka pengguna disimpan dalam memori dan disinkronkan dengan DOM oleh library seperti ReactDOM, istilah “virtual DOM” biasanya dikaitkan dengan elemen React karena mereka adalah objek yang mewakili antarmuka pengguna. 
+
+![Virtual DOM](https://www.petanikode.com/img/react/komponen/virtualdom.png)
+
+### State dan Props
+
+Props (kependekan dari properti) dan state adalah objek JavaScript biasa. Meskipun keduanya menyimpan informasi yang mempengaruhi keluaran dari render, keduanya berbeda satu sama lain, props diteruskan ke komponen (mirip dengan function parameters) sedangkan state dikelola dalam komponen (mirip dengan variabel yang dideklarasikan dalam suatu function). Kedua objek ini memiliki cara kerja yang berbeda.
+
+State adalah objek yang digunakan untuk menyimpan data di dalam komponen, sedangkan props adalah objek yang digunakan untuk menyimpan data yang diterima dari luar komponen. Data yang disimpan di dalam state bisa kita ubah-ubah, sedangkan data yang disimpan di dalam props tidak bisa diubah karena sifatnya read-only. Nah untuk mengubah nilai pada state, kita bisa menggunakan method setState().
+
+#### Stateful Component dengan Stateless Component
+
+Stateful components adalah komponen yang menggunakan state. Sedangkan Stateless adalah komponen yang tidak menggunakan state.
+Stateful components juga dikenal dengan sebutan Container dan Smart components. Stateless juga dikenal dengan sebutan Presentation dan Dumb Components.
+
+![stateful and stateless Component](https://www.petanikode.com/img/react/komponen/stateful-stateless.png)
+
