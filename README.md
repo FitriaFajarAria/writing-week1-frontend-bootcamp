@@ -23,6 +23,34 @@ use library pada react :
           cd nama-project
           yarn start
           
+
+Pada dasarnya Reacjs hanya melakukan render komponen saat ada data yang berubah. Seperti namanya “React” ia akan breaksi saat ada perubahan data (reaktif). Komponen adalah bagian-bagian dari UI, contohnya seperti tombol, label, input, dll. Komponen juga bisa dibentuk dari komponen yang lain, langkah-langkah yang harus dilakukan untuk membuat aplikasi react adalah sebagai berikut:
+1. Menambahkan library react ke HTML;
+2. Membuat elemen HTML untuk wadah aplikasi;
+3. Membuat komponen;
+4. Me-render komponen ke HTML;
+5. Setiap aplikasi react membutuhkan sebuah wadah.
+Kita membuat sebuah elemen div dengan id="app".Setiap komponen yang kita buat di React akan di-render atau ditampilkan ke dalam div tersebut.
+
+           <div id="app"></div>
+
+#### Membuat Komponen React
+
+1. Komponen React dapat dibuat dengan ketentuan umum sebagai berikut ini:
+
+- Import library React
+- Nama Fungsi diawali dengan huruf kapital
+- Return value dari fungsi berupa JSX dengan satu child
+- Mari kita bahas masing-masing ketentuan di atas.
+
+2. Library React Harus Berada di Dalam Scope
+
+Dikarenakan JSX akan di-transform ke dalam bentuk javascript oleh compiler (babel). maka kita perlu mengikut sertakan library React di setiap scope atau cakupan kode yang menggunakan JSX.
+
+3. Nama Fungsi Diawali dengan Huruf Kapital
+
+Sebuah fungsi dengan nama yang diawali dengan huruf kapital dan me-return JSX disebut React function component, selanjutnya kita bisa menggunakan custom tag html dengan nama fungsi tersebut.
+
 ### Keunggulan React Js
 
 Ada beberapa fitur yang menjadi keunggulan React Js. Berikut beberapa di antaranya.
@@ -38,11 +66,76 @@ React memiliki yang namanya component, component yaitu sesuatu yang UI dalam sat
 
 ### Membuat UI Element dengan React js 
 
+Buat file pada direktori src dengan .js
+
        import React from 'react';
        function HelloWorld() {
        return (
-       <h1>HelloWorld</h1>
+          <h1>HelloWorld</h1>
         );
        }
     
         Export default HelloWorld;
+
+
+Edit file App.js
+
+          import React from 'react';
+          import HelloWorld from '.HelloWorld';
+
+          function App() {
+          return (
+           <div>
+              <HelloWorld />
+          </div>
+           );
+          }
+          
+          export default App;
+
+### JSX in React
+
+          const element = (
+                <div>
+                     <h1>Halo!</h1>
+                     <h2>Senang melihatmu di sini.</h2>
+                </div>
+          );
+          
+Sintaksis ini di kenal dengan sebutan JSX (Javascript XML) adalah extension dari Javasript. JSX membuat kita bisa menggunakan HTML di dalam Javascript, sama seperti XML dan HTML, ia juga memiliki nama tag, atribut, dan elemen anak. JSX akan menghasilkan "elemen" React. Kita dapat menggunakan JSX di dalam pernyataan if dan perulangan for, memasukkannya ke dalam variabel, menerimanya sebagai argumen, dan mengembalikannya dari sebuah fungsi. 
+
+Pada JSX class akan menjadi className serta di JSX sendiri hanya memiliki 1 element parent (gunakan tag <div></div> atau fragment kosong <></> sebagai parent dari element lain), dengan JSX kita dapat menggunakan tag HTML didalam file extention .js.
+Tanpa JSX, kita bisa membuat elemen React dengan method:
+
+                    React.createElement();
+                    
+                    
+ ![React.createElement](https://www.petanikode.com/img/reactjs-jsx/react-element.png)
+ 
+Method ini punya tiga parameter yang wajib diisi:
+
+- Type elemen dalam bentuk string;
+- Properti element dalam bentuk object;
+- Children dalam bentuk string dan juga object react element;
+
+#### Aturan Penulisan JSX
+
+1. Tempat Penulisan JSX
+JSX biasnaya ditulis di dalam method render() pada class component dan pada statement return di function component.
+
+2. JSX yang punya banyak element
+Mengguakan induk, menggunakan fragment.
+
+3. Penulisan Atribut di JSX
+Penulisan atribut di JSX sama seperti penulisan atribut di HTML biasa, hanya saja beberapa atribut harus ditulis dengan aturan JSX. Misalnya seperti atribut class, pada pada JSX ditulis dengan className (class adalah kata kunci yang sudah ada di Javascript untuk membuat class. Sebenarnya bisa juga kita pakai atribut class saja di JSX, tapi nanti akan dapat warning. Karena itu, untuk menghindari ambigu disarankan pakai className saja).
+
+Pada HTML biasa kita tulis dengan huruf kecil semua, sedangkan pada JSX ditulis dengan format CamelCase. Di dalam sintaks JSX, kita bisa membuat ekspresi Javascript dengan kurung kurawal { ... }. Ekspresi ini dapat ditulis di dalam nilai atribut maupun di dalam konten elemen.
+
+#### Conditional di JSX
+
+Conditional react berfungsi sama halnya dengan operator bersyarat pada Javascript. Gunakan JavaScript operator seperti if atau operator bersyarat untuk membuat representasi elemen dari state saat ini, dan React akan memperbarui UI sesuai dengan state tersebut.
+
+
+### Virtual DOM 
+
+Virtual DOM (VDOM) adalah duplikasi dari real DOM dan merupakan sebuah konsep dalam pemrograman di mana representasi ideal atau virtual dari antarmuka pengguna disimpan dalam memori dan disinkronkan dengan DOM oleh library seperti ReactDOM, istilah “virtual DOM” biasanya dikaitkan dengan elemen React karena mereka adalah objek yang mewakili antarmuka pengguna. 
