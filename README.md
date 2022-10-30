@@ -183,3 +183,52 @@ Stateful components juga dikenal dengan sebutan Container dan Smart components. 
 
 ![stateful and stateless Component](https://www.petanikode.com/img/react/komponen/stateful-stateless.png)
 
+
+# React Lanjutan-Hooks
+
+Hooks adalah fitur yang dikenalkan ReactJs pada tahun 2018, Hooks digunakan untuk mempermudah penggunaan functional components agar bisa menggunakan state, dan lifecycle lainnya yang sebelumnya hanya bisa digunakan di classComponents namun dengan adanya hooks kita bisa menggunakannya di functionalComponent.
+
+### Hooks Effect
+
+Effect Hook memungkinkan kita untuk melakukan efek samping (side effects) didalam function component:
+
+                    import React, { useState, useEffect } from 'react';
+
+                    function Example() {
+                    const [count, setCount] = useState(0);
+
+                    // Mirip dengan componentDidMount dan componentDidUpdate:
+                    useEffect(() => {
+                    // Memperbarui judul dokumen menggunakan API browser
+                    document.title = `You clicked ${count} times`;
+                    });
+
+                    return (
+                        <div>
+                               <p>You clicked {count} times</p>
+                              <button onClick={() => setCount(count + 1)}>
+                              Click me
+                              </button>
+                        </div>
+                    );
+                    }
+
+### Lifecycle Hooks
+
+1. UseState
+
+UseState adalah salah satu lifecyle pada React Hooks yang berfungsi untuk merubah state pada komponen React, dengan menggunakan UseSate kita tidak perlu mendifiniskan constructor dan kodingannya akan menjadi lebih sedikit.
+
+2. UseEffect
+
+UseEffect pada React Hooks seperti ComponentDidMount dan ComponentWillUnmount jadi dengan menggunakan UseEffect penulisan kode nya jadi lebih simple dan clean.
+
+3.useCallback dan useMemo 
+
+useCallback: useCallback akan mengembalikan versi panggilan balik dari memoise yang hanya berubah jika salah satu dari dependensi telah berubah. Ini berguna ketika meneruskan panggilan balik ke komponen turunan optimal yang mengandalkan kesetaraan referensi untuk mencegah perenderan yang tidak perlu (mis. ShouldComponentUpdate).
+
+useMemo :  Mengirim function "create" dan berbagai dependensi. useMemo hanya akan menghitung ulang nilai memoized ketika salah satu dependensi telah berubah. Optimalisasi ini membantu menghindari perhitungan mahal pada setiap render.
+
+4. useRef
+
+Refs menyediakan cara untuk mengakses node DOM atau Bereaksi elemen yang dibuat dalam metode render.
