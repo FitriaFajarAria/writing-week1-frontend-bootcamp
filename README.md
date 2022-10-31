@@ -215,13 +215,36 @@ Effect Hook memungkinkan kita untuk melakukan efek samping (side effects) didala
 
 ### Lifecycle Hooks
 
+Lifecycle (Siklus Hidup), Lifecycle pada React Native adalah aktifitas method yang dilakukan oleh React Native ketika aplikasi di jalankan. Jenis-Jenis Lifecycle React Native
+- Initialization adalah sebuah siklus React Native untuk menset State dan Props sebelum aplikasi di jalankan
+- Mounting adalah sebuah siklus ketika aplikasi baru saja di buka ada 2 jenis yaitu componentDidMount() ketika memuat aplikasi sebelum render dilakukan. componentWillMount yaitu siklus setelah render proses dilakukan. Tapi sekarang disarankan kamu menggunakan componentDidmount().
+- Updatating yaitu ketika kamu mengubah data yang telah di Mounting.
+- Unmount adalah proses menghancurkan atau mendestroy komponen yang sebelumnya di definisikan.
+
+![lifecycle](https://1.bp.blogspot.com/-16mzzroMqW4/Xm-J8Eo06CI/AAAAAAAAAMc/A0yuHNDcnQE6hMOJ-Cbx5_jRRvQvHgeLACLcBGAsYHQ/s640/Component%2BLifecycle%2BReact%2BNative.png)
+
 1. UseState
 
-UseState adalah salah satu lifecyle pada React Hooks yang berfungsi untuk merubah state pada komponen React, dengan menggunakan UseSate kita tidak perlu mendifiniskan constructor dan kodingannya akan menjadi lebih sedikit.
+UseState adalah salah satu lifecyle pada React Hooks yang berfungsi untuk merubah state pada komponen React, dengan menggunakan UseSate kita tidak perlu mendifiniskan constructor dan kodingannya akan menjadi lebih sedikit. Cara penggunaan useState :
+- import use dari React
+
+                    import {useState} from 'react';
+                    
+ - menuliskan useState hooks
+ 
+                    const [nama, setNama] = useState ("fitria");
+                    
+ - pemanggilan data 
+ 
+                    <p> Hai saya {nama} </p>
+                    
+ - update state
+ 
+                    <button onClick={ setNama("rainn") }>ganti</button>
 
 2. UseEffect
 
-UseEffect pada React Hooks seperti ComponentDidMount dan ComponentWillUnmount jadi dengan menggunakan UseEffect penulisan kode nya jadi lebih simple dan clean.
+UseEffect pada React Hooks seperti ComponentDidMount dan ComponentWillUnmount jadi dengan menggunakan UseEffect penulisan kode nya jadi lebih simple dan clean. UseEffect merupakan Hooks yang bisa digunakan untuk menggunakan lifecyle functional component dengan mudah.
 
 3.useCallback dan useMemo 
 
